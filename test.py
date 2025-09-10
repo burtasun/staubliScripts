@@ -5,6 +5,7 @@ import math
 # Server configuration
 HOST = '192.168.0.91'  # IP address of the socket server
 PORT = 1000            # Port number
+PORT_LOGGER = 1001     # Port read telemetry
 
 # Parámetros de escaneo
 nWidthX = 150
@@ -47,6 +48,11 @@ try:
         s.sendall(message.encode('ascii'))
         print("Message sent:", repr(message))
         time.sleep(2)
+        
+        
+        data = s.recv(4096)
+        messagesReceived = data.decode().split('\r')
+        print("Received:", messagesReceived)
 
         # Zig-zag scanning: alternate horizontal order per row.
         for i in range(nStepsY):
@@ -69,8 +75,11 @@ try:
                 print("Message sent:", repr(message))
                 time.sleep(1)
                 data = s.recv(1024)
-                print("Received:", data.decode())
-                time.sleep(1)
+                messagesReceived = data.decode().split('\r')
+                print("Received:", messagesReceived)
+                #TODO descodificar mensaje 
+                #   \rts,29.005,JOINTS,20.834,74.188,93.218,-2.968,13.254,22.665,CART,316.277,140.612,-313.513,-0.864,-179.641,-1.065\r
+                #TODO hilo en paralelo que vaya recibiendo los mensajes para no saturar el buffer del socket!
 
         # Send the end message
         message = 'STOP' + chr(13)  # Append carriage return
