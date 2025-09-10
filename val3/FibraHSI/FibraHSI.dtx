@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Database xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Data/2">
+  <Datas>
+    <Data name="fFrame" access="public" xsi:type="array" type="frame" size="1">
+      <Value key="0" x="317.444674" y="77.778782" z="-312.57185" rx="-0.864374" ry="0.359034" rz="1.064618" fatherId="world[0]" />
+    </Data>
+    <Data name="jJointRx" access="public" xsi:type="array" type="jointRx" size="1">
+      <Value key="0" j1="45" j2="45" j3="45" j4="45" j5="45" j6="45" />
+    </Data>
+    <Data name="jJointRxZeros" access="public" xsi:type="array" type="jointRx" size="1" />
+    <Data name="mMdescFibra" access="public" xsi:type="array" type="mdesc" size="1">
+      <Value key="0" accel="5" vel="10" decel="5" tmax="10" rmax="10" leave="10" reach="10" blend="cartesian" />
+    </Data>
+    <Data name="mMdescMov" access="public" xsi:type="array" type="mdesc" size="1">
+      <Value key="0" accel="90" decel="90" tmax="99.999" rmax="99.999" blend="cartesian" />
+    </Data>
+    <Data name="mNomSpeed" access="private" xsi:type="array" type="mdesc" size="1" />
+    <Data name="nNumPort" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="1000" />
+    </Data>
+    <Data name="nReceiveByte" access="private" xsi:type="array" type="num" size="64" />
+    <Data name="nResult" access="private" xsi:type="array" type="num" size="1" />
+    <Data name="nXPosButTxt" access="private" xsi:type="array" type="num" size="9">
+      <Value key="2" value="5" />
+      <Value key="3" value="10" />
+      <Value key="4" value="15" />
+      <Value key="5" value="20" />
+      <Value key="6" value="25" />
+      <Value key="7" value="30" />
+      <Value key="8" value="35" />
+    </Data>
+    <Data name="nYPosButTxt" access="private" xsi:type="array" type="num" size="1">
+      <Value key="0" value="13" />
+    </Data>
+    <Data name="pPointRxOrigin" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" ry="180" fatherId="fFrame[0]" />
+    </Data>
+    <Data name="pTempSocket" access="private" xsi:type="array" type="pointRx" size="1">
+      <Value key="0" fatherId="fFrame[0]" />
+    </Data>
+    <Data name="sSio" access="public" xsi:type="array" type="sio" size="1">
+      <Value key="0" link="Socket\fibra_ser" />
+    </Data>
+    <Data name="sInputMsg" access="public" xsi:type="array" type="string" size="1" />
+    <Data name="sOutputMsg" access="public" xsi:type="array" type="string" size="1" />
+    <Data name="ftool" access="private" xsi:type="array" type="tool" size="1">
+      <Value key="0" x="76.72" y="-0.63" z="152.93" fatherId="flange[0]" ioLink="valve1" />
+    </Data>
+    <Data name="tTool" access="public" xsi:type="array" type="tool" size="1">
+      <Value key="0" z="20" fatherId="flange[0]" ioLink="valve1" />
+    </Data>
+    <Data name="sOutputMsgLog" access="private" xsi:type="array" type="string" size="1" />
+  </Datas>
+</Database>

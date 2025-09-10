@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="usrContinue" access="public" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="nWhichBttn" type="num" use="reference" xsi:type="element" dimensions="1" />
+      <Parameter name="bClear" type="bool" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  if bClear
+    cls()
+    userPage()
+    gotoxy(0,0)
+    putln("                CONTINUE?")
+    call usrButtonTxt(1,"NO")
+    call usrButtonTxt(8,"YES")
+  else
+    putln("                CONTINUE?")
+    call usrButtonTxt(1,"NO")
+    call usrButtonTxt(8,"YES")
+  endIf
+  nWhichBttn=-1
+  do
+    nWhichBttn=(get()-270)
+  until ((nWhichBttn==1) or (nWhichBttn==8))
+end]]></Code>
+  </Program>
+</Programs>

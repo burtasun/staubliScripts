@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2" >
+  <Program name="usrButtonTxt" access="private" >
+    <Parameters xmlns="http://www.staubli.com/robotics/VAL3/Param/1" >
+      <Parameter name="x_nWhichButton" type="num" use="value" xsi:type="element" dimensions="1" />
+      <Parameter name="x_sButtonTxt" type="string" use="value" xsi:type="element" dimensions="1" />
+    </Parameters>
+    <Code><![CDATA[begin
+  //-----------------------------------------------------------------------
+  //Header begin
+  //Description of program
+  //  This program lets you choose the button to display
+  //
+  //Input parameters
+  //  num x_nWhichButton :
+  //    role : choice of the navigation key
+  //    possible values : 1 to 8 (F1 to F8)
+  //
+  //  string x_sButtonTxt :
+  //    role : Displays desired text
+  //
+  //Traceability
+  //  Creation : 07-04-08 - f.Rob
+  //Header end
+  //-----------------------------------------------------------------------
+
+  //Position cursor X, Y
+  gotoxy(nXPosButTxt[x_nWhichButton],nYPosButTxt)
+  //Displays Text
+  put(left(x_sButtonTxt,4))
+  //Erases contents of  text button parameters
+  x_sButtonTxt=" "
+end]]></Code>
+  </Program>
+</Programs>

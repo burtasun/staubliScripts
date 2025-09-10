@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Programs xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.staubli.com/robotics/VAL3/Program/2">
+  <Program name="pLogger" access="public">
+    <Locals>
+      <Local name="jHere" type="joint" xsi:type="array" size="1" />
+      <Local name="pHere" type="point" xsi:type="array" size="1" />
+      <Local name="nStart" type="num" xsi:type="array" size="1" />
+      <Local name="tEnd" type="num" xsi:type="array" size="1" />
+    </Locals>
+    <Code><![CDATA[begin
+  //Definimos un punto inicial de logging sobre el que computar el tiempo relativo
+  nStart=clock()
+  //Quizas se pueda iniciar el logging ante una entrada digital que sincronice el laser tracker con el logging.
+  while true
+    tEnd = clock()-nStart
+    sOutputMsgLog = "ts," +toString(".3", tEnd)
+    jHere = herej()
+    sOutputMsgLog = sOutputMsgLog + ",JOINTS," + toString(".3", jHere.j1) + "," + toString(".3", jHere.j2) + "," + toString(".3", jHere.j3) + "," + toString(".3", jHere.j4) + "," + toString(".3", jHere.j5) + "," + toString(".3", jHere.j6)
+    pHere = here(tTool, world)
+    sOutputMsgLog = sOutputMsgLog + ",CART," 
+    sOutputMsgLog = sOutputMsgLog + toString(".3", pHere.trsf.x) + "," + toString(".3", pHere.trsf.y) + "," + toString(".3", pHere.trsf.z) + "," 
+    sOutputMsgLog = sOutputMsgLog + toString(".3", pHere.trsf.rx) + "," + toString(".3", pHere.trsf.ry) + "," + toString(".3", pHere.trsf.rz)
+    sSio=sOutputMsgLog
+    delay(0.02)
+  endWhile
+end]]></Code>
+  </Program>
+</Programs>
